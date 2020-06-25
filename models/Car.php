@@ -2,14 +2,11 @@
     class Car
     {
         private $conn;
-        private $table = 'cars';
 
         public $id;
         public $name;
-        public $description;
         public $year;
         public $mileage;
-        public $engine;
         public $fuel;
         public $price;
         public $location;
@@ -38,10 +35,8 @@
             
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             $this->name = $row['name'];
-            $this->description = $row['description'];
             $this->year = $row['year'];
             $this->mileage = $row['mileage'];
-            $this->engine = $row['engine'];
             $this->fuel = $row['fuel'];
             $this->price = $row['price'];
             $this->location = $row['location'];
@@ -54,10 +49,8 @@
             SET
                 id = :id,
                 name = :name,
-                description = :description,
                 year = :year,
                 mileage = :mileage,
-                engine = :engine,
                 fuel = :fuel,
                 price = :price,
                 location = :location,
@@ -66,22 +59,18 @@
             //czyszczenie
             $this->id = htmlspecialchars(strip_tags($this->id));
             $this->name = htmlspecialchars(strip_tags($this->name));
-            $this->description = htmlspecialchars(strip_tags($this->description));
             $this->year = htmlspecialchars(strip_tags($this->year));
             $this->mileage = htmlspecialchars(strip_tags($this->mileage));
             $this->engine = htmlspecialchars(strip_tags($this->engine));
-            $this->fuel = htmlspecialchars(strip_tags($this->fuel));
             $this->price = htmlspecialchars(strip_tags($this->price));
             $this->location = htmlspecialchars(strip_tags($this->location));
             $this->link = htmlspecialchars(strip_tags($this->link));
 
             $stmt->bindParam(':id', $this->id);
             $stmt->bindParam(':name', $this->name);
-            $stmt->bindParam(':description', $this->description);
             $stmt->bindParam(':year', $this->year);
             $stmt->bindParam(':mileage', $this->mileage);
             $stmt->bindParam(':engine', $this->engine);
-            $stmt->bindParam(':fuel', $this->fuel);
             $stmt->bindParam(':price', $this->price);
             $stmt->bindParam(':location', $this->location);
             $stmt->bindParam(':link', $this->link);

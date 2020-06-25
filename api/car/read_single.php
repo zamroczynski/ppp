@@ -20,10 +20,8 @@
     $car_arr = array(
         'id' => $car->id,
         'name' => $car->name,
-        'description' => $car->description,
         'year' => $car->year,
         'mileage' => $car->mileage,
-        'engine' => $car->engine,
         'fuel' => $car->fuel,
         'price' => $car->price,
         'location' => $car->location,

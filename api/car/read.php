@@ -17,7 +17,6 @@
     if ($num > 0)
     {
         $cars_arr = array();
-        $cars_arr['data'] = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC))
         {
@@ -26,17 +25,15 @@
             $car_item = array(
                 'id' => $id,
                 'name' => $name,
-                'description' => $description,
                 'year' => $year,
                 'mileage' => $mileage,
-                'engine' => $engine,
                 'fuel' => $fuel,
                 'price' => $price,
                 'location' => $location,
                 'link' => $link
             );
 
-            array_push($cars_arr['data'], $car_item);
+            array_push($cars_arr, $car_item);
         }
         echo json_encode($cars_arr);
     }
