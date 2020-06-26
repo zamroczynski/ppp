@@ -1,10 +1,10 @@
 <?php
-    echo 'Dodano nowe pozycje do bazy danych <a href="../index.php"> POWRÓT</a>';
+    echo 'Dodano nowe pozycje do bazy danych <a href="../index.php"> POWRÓT</a> <br/><br/>';
     include('simple_html_dom.php');
     include_once '../config/Database.php';
     $datebase = new Database();
     $db = $datebase->connect();
-    $max_page = 1;
+    $max_page = 10;
     for($i=1; $i <= $max_page; $i++)
     {
         $url = 'https://www.otomoto.pl/osobowe/?page='.$i;

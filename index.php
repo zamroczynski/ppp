@@ -52,6 +52,11 @@ function callAPI($method, $url, $data){
     header("Location: scraper/index.php");
     exit();
  }
+ if(isset($_GET['delete']))
+ {
+    $result = callAPI('DELETE', 'http://localhost/ppp/api/car/delete.php', false);
+    echo $result."<br/>";
+ }
 ?>
 <!doctype html>
 <html lang="pl">
@@ -64,7 +69,7 @@ function callAPI($method, $url, $data){
 
     <body>
         <form>
-            <input type="button" value="Wyczyść DB" /> 
+            <input type="submit" value="Wyczyść DB" name="delete" /> 
             <br />
             <br />
             <input type="submit" value="Uruchom Scrapera" name="scrap" />

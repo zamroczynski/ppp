@@ -82,5 +82,15 @@
             printf("Error: %s \n", $stmt->error);
             return false;
         }
+        public function delete() {
+            $query = 'DELETE FROM cars';
+            $stmt = $this->conn->prepare($query);
+            if($stmt->execute())
+            {
+                return true;
+            }
+            printf("Error: %s \n", $stmt->error);
+            return false;
+        }
     }
 ?>
